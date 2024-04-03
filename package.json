@@ -11,7 +11,10 @@
     "prepare": "husky || true"
   },
   "lint-staged": {
-    "*": "prettier --write . && eslint . --quiet"
+    "**/*.{cjs,js,ts,tsx,md,yml}": [
+      "prettier --write",
+      "eslint --quiet"
+    ]
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.7.0",

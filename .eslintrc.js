@@ -1,7 +1,7 @@
 // @ts-check
-import { defineConfig } from "eslint-define-config"
+const { defineConfig } = require("eslint-define-config")
 
-export default defineConfig({
+module.exports = defineConfig({
   root: true,
   env: {
     es2022: true,
@@ -9,7 +9,6 @@ export default defineConfig({
   },
   extends: [
     "next/core-web-vitals",
-    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript"
@@ -27,9 +26,9 @@ export default defineConfig({
     "max-depth": ["error", 3],
 
     // Tailwind rules
-    "enforces-shorthand": "error",
-    "enforces-negative-arbitrary-values": "warn",
-    "no-unnecessary-arbitrary-value": "warn",
+    // "enforces-shorthand": "error",
+    // "enforces-negative-arbitrary-values": "warn",
+    // "no-unnecessary-arbitrary-value": "warn",
 
     // TypeScript rules
     "@typescript-eslint/ban-ts-comment": "off",
@@ -88,5 +87,10 @@ export default defineConfig({
         next: "try"
       }
     ]
+  },
+  settings: {
+    next: {
+      rootDir: "client/"
+    }
   }
 })
