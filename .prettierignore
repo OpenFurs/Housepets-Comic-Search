@@ -1,7 +1,3 @@
-node_modules
-.github
-.nuxt
-.output
-python
-
-*.py
+node_modules/
+python/
+.next/

@@ -28,8 +28,8 @@ interwebs with CloudFlare.
 
 ### Prerequisites
 
-- Node.js 18 or higher (LTS recommended)
-- Python 3.10 or higher
+- Node.js 20 or higher (LTS recommended)
+- Python 3.11 or higher
 - Yarn (npm can still be used but we strongly recommend using
   yarn!)
 

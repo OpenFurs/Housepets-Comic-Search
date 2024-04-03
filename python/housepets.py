@@ -5,7 +5,6 @@ from slugify import slugify
 from redis import StrictRedis
 from redis.exceptions import ResponseError
 from redis.commands.search.query import Query
-
 from redis.commands.search.indexDefinition import IndexDefinition
 from bs4 import BeautifulSoup
 from bs4.element import Tag

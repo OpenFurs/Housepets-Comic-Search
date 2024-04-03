@@ -1,7 +1,5 @@
 from datetime import datetime
-from redis.commands.search.field import NumericField
-from redis.commands.search.field import TagField
-from redis.commands.search.field import TextField
+from redis.commands.search.field import NumericField, TagField, TextField
 from dotenv import load_dotenv
 import os
 
