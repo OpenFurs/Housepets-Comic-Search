@@ -10,10 +10,15 @@ module.exports = defineConfig({
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/recommended",
     "plugin:import/typescript"
   ],
-  plugins: ["@stylistic", "import", "tailwindcss", "unused-imports"],
+  plugins: [
+    "@stylistic",
+    "@stylistic/ts",
+    "import",
+    "tailwindcss",
+    "unused-imports"
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module"
@@ -34,12 +39,13 @@ module.exports = defineConfig({
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/member-delimiter-style": "warn",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/consistent-type-imports": [
       "error",
       { prefer: "type-imports" }
     ],
+
+    "@stylistic/ts/member-delimiter-style": "off",
 
     // Code quality rules
     "@stylistic/newline-per-chained-call": [
