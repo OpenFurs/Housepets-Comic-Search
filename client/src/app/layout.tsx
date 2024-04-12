@@ -8,10 +8,9 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - Searchpets",
-    default: "Title not set"
+    template: "%s | Searchpets",
+    default: "Searchpets",
   },
-  description: ""
 }
 
 export const viewport: Viewport = {
@@ -25,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "overflow-x-hidden")}>
+      <body className={cn(inter.className, "overflow-x-hidden text-sm")}>
         <div>
           <Navbar />
           {children}

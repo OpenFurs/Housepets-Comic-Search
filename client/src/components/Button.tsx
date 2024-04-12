@@ -31,7 +31,10 @@ const Button = forwardRef(
         }}
       >
         {prefixElement}
-        {children}
+        <span id="children-slot" className="overflow-ellipsis">
+          {icon}
+          {children}
+        </span>
         {suffixElement}
       </button>
     )
