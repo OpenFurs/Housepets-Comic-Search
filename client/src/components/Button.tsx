@@ -10,7 +10,8 @@ const Button = forwardRef(
       prefix: prefixElement,
       suffix: suffixElement,
       a11yLabel,
-      className
+      className,
+      ...attrs
     }: Partial<{
       children: React.ReactNode
       icon: NonNullable<React.ReactElement<IconType>>
@@ -18,13 +19,18 @@ const Button = forwardRef(
       suffix: NonNullable<React.ReactElement>
       a11yLabel: string
       className: string
+      onClick: React.MouseEventHandler<HTMLButtonElement>
     }>,
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     return (
       <button
         ref={ref}
-        className={cn("px-3.5 py-1 rounded-md", className)}
+        className={cn(
+          "py-2.5 rounded-md border border-red-400",
+          icon ? "px-2.5" : "px-4",
+          className
+        )}
         aria-label={a11yLabel}
         style={{
           maxWidth: "fit-content"
