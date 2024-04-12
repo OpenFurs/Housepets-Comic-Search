@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="px-12 max-w-screen-2xl mx-auto py-6 text-center [&_div]:pt-3.5 [&_a]:underline [&_a]:text-blue-600 hover:[&_a]:text-blue-700">
       <div>
-        <strong>Disclaimer:</strong> <em>Searchpets!</em> is a fan project and
-        has no association or affiliation with the <em>Housepets!</em>{" "}
+        <strong>Disclaimer:</strong> <em>Searchpets!</em> is a fanmade project
+        and has no association or affiliation with the <em>Housepets!</em>{" "}
         franchise. All the assets present is used for informational and
         dissemination purposes.
         {" Uses assets from "}

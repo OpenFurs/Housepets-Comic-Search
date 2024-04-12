@@ -48,6 +48,7 @@ module.exports = defineConfig({
     "@stylistic/ts/member-delimiter-style": "off",
 
     // Code quality rules
+    "react/no-unescaped-entities": "off",
     "@stylistic/newline-per-chained-call": [
       "error",
       { ignoreChainWithDepth: 3 }

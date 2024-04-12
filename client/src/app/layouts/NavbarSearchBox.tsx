@@ -14,11 +14,12 @@ export default function SearchBox() {
       <div
         className={cn(
           "flex items-center rounded-md border overflow-hidden w-full transition-colors duration-100",
-          isInputFocused ? "border-blue-600" : "border-gray-300"
+          isInputFocused ? "border-blue-600" : "border-gray-400"
         )}
       >
         <input
           type="text"
+          role="searchbox"
           placeholder="Search"
           aria-label="Search stuff"
           className="px-3.5 py-1.5 h-full flex-1 focus:outline-none"

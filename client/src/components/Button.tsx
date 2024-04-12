@@ -27,7 +27,7 @@ const Button = forwardRef(
       <button
         ref={ref}
         className={cn(
-          "py-2.5 rounded-md border border-red-400",
+          "py-2.5 rounded-md border border-red-400 flex items-center gap-x-1.5",
           icon ? "px-2.5" : "px-4",
           className
         )}
