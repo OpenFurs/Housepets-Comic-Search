@@ -1,6 +1,6 @@
 requests
 beautifulsoup4
-redis
+pymongo
 mypy
 python-slugify
 python-dotenv

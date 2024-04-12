@@ -1,5 +1,4 @@
 from datetime import datetime
-from redis.commands.search.field import NumericField, TagField, TextField
 from dotenv import load_dotenv
 import os
 
@@ -9,21 +8,4 @@ load_dotenv()
 initial_year: int = int(2008)
 current_year: int = datetime.now().year
 
-schema = (
-    TextField("title"),
-    TextField("comic_link"),
-    TagField("characters"),
-    TagField("chapter"),
-    TextField("year"),
-    TextField("date"),
-    TextField("image"),
-    NumericField("index", sortable=True),
-)
-
-char_schema = (
-    TextField("name"),
-    TextField("slug"),
-    NumericField("amount"),
-)
-
-redis_url = os.getenv("REDIS_URL")
+mongo_url = os.getenv("MONGO_URL")
