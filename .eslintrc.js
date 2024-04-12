@@ -63,13 +63,6 @@ module.exports = defineConfig({
     "@stylistic/keyword-spacing": ["error", { before: true }],
     "@stylistic/space-before-blocks": "error",
     "@stylistic/object-curly-spacing": ["error", "always"],
-    "@stylistic/object-curly-newline": [
-      "error",
-      {
-        minProperties: 3,
-        consistent: true
-      }
-    ],
     "@stylistic/padding-line-between-statements": [
       "error",
       {
