@@ -18,11 +18,10 @@
 
 ## Infrastructure
 
-The website is written in Nuxt 3, and the database
-and search functionality is powered by Redis. While the back-end is written in Python
-to update latest comics from the [official website](https://www.housepetscomic.com).
-Searchpets! is hosted from Linode and Netlify and delivered through the
-interwebs with CloudFlare.
+The website is written in Next.js; its database and search functionality is powered
+ by MongoDB. The backend is written in Python to update latest comics fro
+  the [official website](https://www.housepetscomic.com).
+Searchpets! is hosted from Linode and Vercel and delivered through Cloudflare.
 
 ## Running the app locally
 
@@ -32,6 +31,19 @@ interwebs with CloudFlare.
 - Python 3.11 or higher
 - Yarn (npm can still be used but we strongly recommend using
   yarn!)
+- Docker
+
+### Setup and Installation
+
+- Install dependencies with `yarn install` or `yarn`
+- Go to the `python/` directory; and run the following commands:
+
+  ```sh
+  python -v venv venv
+  pip install -r requirements.txt
+  ```
+
+- On the root of the project, run `yarn dev` to run the website
 
 ## Disclaimer
 
