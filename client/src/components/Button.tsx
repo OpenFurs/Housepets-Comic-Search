@@ -37,6 +37,7 @@ const Button = forwardRef(
 
     return (
       <button
+        data-variant-debug={variant}
         {...attrs}
         ref={ref}
         aria-label={a11yLabel}
