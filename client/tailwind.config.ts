@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 import typographyPlugin from "@tailwindcss/typography"
+import headlessUIPlugin from "@headlessui/tailwindcss"
 
 const config: Config = {
   content: [
@@ -8,15 +9,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
-      }
-    }
+    extend: {}
   },
-  plugins: [typographyPlugin]
+  plugins: [typographyPlugin, headlessUIPlugin]
 }
 
 export default config

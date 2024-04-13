@@ -49,7 +49,7 @@ const Button = forwardRef(
         )}
       >
         {prefixElement}
-        <span id="children-slot" className="select-none overflow-ellipsis">
+        <span className="select-none overflow-hidden whitespace-nowrap text-ellipsis">
           {icon}
           {children}
         </span>
