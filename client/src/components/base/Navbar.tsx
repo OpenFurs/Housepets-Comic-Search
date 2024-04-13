@@ -2,19 +2,27 @@ import { Button } from "@/components"
 import Link from "next/link"
 import { LuBookmark, LuMenu, LuSettings } from "react-icons/lu"
 import SearchBox from "./NavbarSearchBox"
+import Image from "next/image"
 
 export default function Navbar() {
   return (
-    <nav className="flex px-8 py-4 justify-between odd:[&_div]:flex odd:[&_div]:items-center sticky top-0">
+    <nav className="z-[1] flex px-8 py-4 justify-between odd:[&_div]:flex odd:[&_div]:items-center sticky top-0 bg-white">
       {/* Menu navigation and wordmark */}
       <div className="gap-x-2">
-        <Button icon={<LuMenu size={19} />} />
+        <Button icon={<LuMenu size={19} />} variant="tritery" />
         <Link
           href="/"
           translate="no"
-          className="text-2xl font-bold select-none cursor-default"
+          className="flex items-center text-2xl font-bold cursor-pointer select-none gap-x-2.5"
         >
-          Searchpets!
+          <Image
+            src="/icon.png"
+            alt=""
+            width={40}
+            height={40}
+            className="border-2 rounded-md"
+          />
+          <span className="[letter-spacing:-0.03rem]">Searchpets!</span>
         </Link>
       </div>
       {/* Search box */}

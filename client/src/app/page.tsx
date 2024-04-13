@@ -1,14 +1,19 @@
-import { Button } from "@/components"
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Home"
-}
+import { ComicItem } from "@/components"
 
 export default function HomePage() {
   return (
-    <div>
-      <Button>Test</Button>
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mx-auto max-w-screen-2xl gap-2.5 px-7">
+      {[...Array(7)].map((_, i) => (
+        <ComicItem
+          key={i}
+          arc="Arc1"
+          image="/placeholder.png"
+          title="Title Placeholder"
+          isBookmarked={false}
+          date="1/1/2024"
+          characters={["a", "b", "c"]}
+        />
+      ))}
     </div>
   )
 }

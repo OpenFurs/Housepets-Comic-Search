@@ -1,22 +1,28 @@
+import { cn } from "@/utils"
 import type { IconType } from "react-icons"
 
 export default function Group({
   children,
   headingIcon: HeadingIcon,
   headingTitle,
-  headingRight
+  headingRight,
+  className
 }: {
   children?: React.ReactNode
   headingIcon?: IconType
   headingTitle: string
   headingRight?: React.ReactNode
+  className?: string
 }) {
   return (
     <div
-      id="group"
-      className="overflow-hidden rounded-md border-red-200 border-2 *:px-4 *:py-3"
+      id="group-container"
+      className={cn(
+        "overflow-hidden rounded-md border-purple-300 border-2 [&_div]:px-4 [&_div]:py-3",
+        className
+      )}
     >
-      <div className="flex justify-between bg-red-200">
+      <div className="flex justify-between bg-purple-50">
         <h2 className="flex items-center text-base font-semibold gap-x-2">
           {HeadingIcon ? <HeadingIcon size={21} /> : null}
           <span>{headingTitle}</span>

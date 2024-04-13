@@ -1,7 +1,7 @@
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
-import { Footer, Navbar } from "./layouts"
+import { Footer, Navbar } from "@/components/base"
 import { cn } from "@/utils"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: {
     template: "%s | Searchpets",
-    default: "Searchpets"
+    default: "Home | Searchpets"
   }
 }
 
@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, "overflow-x-hidden text-sm")}>
         <Navbar />
-        <div>{children}</div>
+        <div className="min-h-[calc(100dvh-4rem)]">{children}</div>
         <Footer />
       </body>
     </html>

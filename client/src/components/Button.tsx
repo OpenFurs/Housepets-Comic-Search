@@ -1,6 +1,10 @@
+"use client"
+
 import { cn } from "@/utils"
 import { forwardRef } from "react"
 import type { IconType } from "react-icons"
+
+type ButtonVariants = "primary" | "secondary" | "tritery"
 
 const Button = forwardRef(
   (
@@ -11,6 +15,7 @@ const Button = forwardRef(
       suffix: suffixElement,
       a11yLabel,
       className,
+      variant = "primary",
       ...attrs
     }: Partial<{
       children: React.ReactNode
@@ -19,25 +24,31 @@ const Button = forwardRef(
       suffix: NonNullable<React.ReactElement>
       a11yLabel: string
       className: string
+      variant?: ButtonVariants
       onClick: React.MouseEventHandler<HTMLButtonElement>
     }>,
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
+    const buttonVariants: Record<ButtonVariants, string> = {
+      primary: "bg-purple-200 hover:bg-purple-300",
+      secondary: "bg-purple-400 text-white hover:bg-purple-500",
+      tritery: "hover:bg-purple-300"
+    }
+
     return (
       <button
+        {...attrs}
         ref={ref}
+        aria-label={a11yLabel}
         className={cn(
-          "py-2.5 rounded-md border border-red-400 flex items-center gap-x-1.5",
-          icon ? "px-2.5" : "px-4",
+          "max-w-fit rounded-md flex items-center gap-x-1.5 transition-colors duration-100",
+          icon ? "p-2.5" : "px-3 py-1.5",
+          buttonVariants[variant],
           className
         )}
-        aria-label={a11yLabel}
-        style={{
-          maxWidth: "fit-content"
-        }}
       >
         {prefixElement}
-        <span id="children-slot" className="overflow-ellipsis">
+        <span id="children-slot" className="select-none overflow-ellipsis">
           {icon}
           {children}
         </span>

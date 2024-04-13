@@ -13,8 +13,8 @@ export default function SearchBox() {
       {/* Search box wrapper */}
       <div
         className={cn(
-          "flex items-center rounded-md border overflow-hidden w-full transition-colors duration-100",
-          isInputFocused ? "border-blue-600" : "border-gray-400"
+          "flex items-center rounded-md border-2 overflow-hidden w-full transition-colors duration-100",
+          isInputFocused ? "border-purple-600" : "border-gray-300"
         )}
       >
         <input
