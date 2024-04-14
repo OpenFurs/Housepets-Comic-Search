@@ -10,11 +10,12 @@ import {
   LuInfo,
   LuMenu
 } from "react-icons/lu"
-import Button from "../Button"
+import { Button } from "../button"
 import TransitionWrapper from "../TransitionWrapper"
 import type { IconType } from "react-icons"
 import { cn } from "@/utils"
 import { useIsExactRoute } from "@/hooks"
+import { SiFandom } from "react-icons/si"
 
 export default function NavbarMenu() {
   const menuItems = [
@@ -34,7 +35,8 @@ export default function NavbarMenu() {
       link: "https://www.housepetscomic.com"
     },
     {
-      label: "Housepets! wiki",
+      icon: SiFandom,
+      label: "Housepets! Fandom Wiki",
       link: "https://housepetscomic.fandom.com/wiki/Housepets!_Wiki"
     }
   ]
@@ -49,7 +51,7 @@ export default function NavbarMenu() {
     label: string
   }) => {
     const parsedLink = link ?? `/${label.toLowerCase()}`
-    const isMatchingPath = useIsExactRoute(link!)
+    const isMatchingPath = useIsExactRoute(parsedLink)
 
     const ICON_SIZE = 19
 
@@ -87,7 +89,12 @@ export default function NavbarMenu() {
           ))}
           <div className="my-2 flex-shrink-0 border-b border-gray-400 mx-3" />
           {externalItems.map((item) => (
-            <ItemLinks key={item.link} label={item.label} link={item.link} />
+            <ItemLinks
+              key={item.link}
+              label={item.label}
+              link={item.link}
+              icon={item.icon}
+            />
           ))}
         </Menu.Items>
       </TransitionWrapper>

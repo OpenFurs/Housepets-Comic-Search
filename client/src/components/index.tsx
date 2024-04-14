@@ -1,8 +1,11 @@
-import Button from "./Button"
-import ComicItem from "./ComicItem"
-
-import Group from "./Group"
-import Hyperlink from "./Hyperlink"
-
-export { Button, ComicItem, Hyperlink, Group }
 export * from "./base"
+
+export * from "./button"
+
+// Export fIx for client rendering
+export * as ComicItem from "./comic-item"
+
+export * from "./group"
+export * from "./hyperlink"
+
+export * from "./responsive-grid"

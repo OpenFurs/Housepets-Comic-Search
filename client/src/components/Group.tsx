@@ -1,7 +1,7 @@
 import { cn } from "@/utils"
 import type { IconType } from "react-icons"
 
-export default function Group({
+export function Group({
   children,
   headingIcon: HeadingIcon,
   headingTitle,

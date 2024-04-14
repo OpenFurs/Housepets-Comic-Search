@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import Button from "./Button"
+import { Button } from "./button"
 import { LuBookmark } from "react-icons/lu"
 import { useState } from "react"
 import { cn } from "@/utils"

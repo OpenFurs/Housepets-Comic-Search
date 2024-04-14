@@ -4,6 +4,7 @@ import { Button } from "@/components"
 import { cn } from "@/utils"
 import { useState } from "react"
 import { LuSearch } from "react-icons/lu"
+import SearchSuggestions from "./NavbarSearchSuggestions"
 
 export default function SearchBox() {
   const [isInputFocused, setInputFocused] = useState(false)
@@ -26,10 +27,13 @@ export default function SearchBox() {
           onFocus={() => setInputFocused(true)}
           onBlur={() => setInputFocused(false)}
         />
-        <Button icon={<LuSearch size={18} />}></Button>
+        <Button
+          icon={<LuSearch size={18} />}
+          className="rounded-none px-3.5"
+        ></Button>
       </div>
       {/* Suggestions panel */}
-      <div id="suggestions"></div>
+      <SearchSuggestions show={isInputFocused} />
     </div>
   )
 }

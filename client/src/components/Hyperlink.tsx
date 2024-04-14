@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Hyperlink({
+export function Hyperlink({
   children,
   href,
   noExplicitUrl
