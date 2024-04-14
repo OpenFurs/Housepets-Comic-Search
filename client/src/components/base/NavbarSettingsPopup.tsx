@@ -14,7 +14,7 @@ export default function SettingsPopover() {
           <TransitionWrapper show={open}>
             <Popover.Panel
               static
-              className="absolute z-10 top-0 right-0 p-3.5 shadow-md rounded-md flex flex-col bg-white"
+              className="absolute z-10 top-3 border border-purple-500 right-0 p-3.5 shadow-md rounded-md flex flex-col bg-white"
             ></Popover.Panel>
           </TransitionWrapper>
         </>

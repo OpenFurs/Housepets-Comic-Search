@@ -31,7 +31,7 @@ const Button = forwardRef(
   ) => {
     const buttonVariants: Record<ButtonVariants, string> = {
       primary: "bg-purple-200 hover:bg-purple-300",
-      secondary: "bg-purple-400 text-white hover:bg-purple-500",
+      secondary: "bg-purple-500 text-white hover:bg-purple-600",
       tritery: "hover:bg-purple-300"
     }
 

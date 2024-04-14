@@ -12,7 +12,7 @@ import {
 
 export default function SavesPageWrapper() {
   return (
-    <div className="mx-auto max-w-screen-2xl px-8">
+    <>
       {/* Heading */}
       <div className="my-6 flex justify-between">
         <h1 className="font-bold text-3xl">History and saves</h1>
@@ -47,7 +47,7 @@ export default function SavesPageWrapper() {
           contents wip
         </Group>
       </div>
-    </div>
+    </>
   )
 }
 

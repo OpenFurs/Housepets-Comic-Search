@@ -55,7 +55,6 @@ export default function NavbarMenu() {
 
     return (
       <Menu.Item
-        data-matching-path={isMatchingPath}
         as={Link}
         href={parsedLink}
         target={link?.startsWith("https") ? "_blank" : undefined}
@@ -78,9 +77,9 @@ export default function NavbarMenu() {
       <Menu.Button as={Button} icon={<LuMenu size={19} />} variant="tritery" />
       <TransitionWrapper>
         <Menu.Items className="absolute top-3 left-0 overflow-hidden bg-white rounded-md shadow-md border border-purple-600 flex flex-col">
-          {menuItems.map((item) => (
+          {menuItems.map((item, i) => (
             <ItemLinks
-              key={item.link}
+              key={i}
               label={item.label}
               link={item.link}
               icon={item.icon}

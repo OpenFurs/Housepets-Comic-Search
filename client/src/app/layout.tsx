@@ -27,7 +27,9 @@ export default function RootLayout({
       <body className={cn(inter.className, "overflow-x-hidden text-sm")}>
         <div className="contents">
           <Navbar />
-          <div className="min-h-[calc(100dvh-4rem)]">{children}</div>
+          <div className="min-h-[calc(100dvh-4rem)] mx-auto max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl px-7">
+            {children}
+          </div>
           <Footer />
         </div>
       </body>
