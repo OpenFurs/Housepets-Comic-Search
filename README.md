@@ -1,10 +1,10 @@
 <h1 align="center">
-  <img width="110" alt="searchpets-peanut-transparent" src="https://user-images.githubusercontent.com/94678583/170873665-9d07cb32-abb9-45b6-8aea-8e361da84bd7.png">
-  <br>
+  <img width="110" alt="searchpets-peanut-transparent" src="https://user-images.githubusercontent.com/94678583/170873665-9d07cb32-abb9-45b6-8aea-8e361da84bd7.png" />
+  <br />
   <em>Searchpets!</em>
 </h1>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94678583/192121601-8083d9a5-a607-4201-8db1-d15369e240b7.png" alt="Searchpets Dev Demo">
+  <img src="https://user-images.githubusercontent.com/94678583/192121601-8083d9a5-a607-4201-8db1-d15369e240b7.png" alt="Searchpets Dev Demo" />
 </p>
 <p align="center">
   <img src="https://img.shields.io/github/license/foosky-labs/searchpets?style=flat" alt="GPL 2.0 License" />
@@ -19,8 +19,8 @@
 ## Infrastructure
 
 The website is written in Next.js; its database and search functionality is powered
- by MongoDB. The backend is written in Python to update latest comics fro
-  the [official website](https://www.housepetscomic.com).
+by MongoDB. The backend is written in Python to update latest comics from
+the [official website](https://www.housepetscomic.com).
 Searchpets! is hosted from Linode and Vercel and delivered through Cloudflare.
 
 ## Running the app locally

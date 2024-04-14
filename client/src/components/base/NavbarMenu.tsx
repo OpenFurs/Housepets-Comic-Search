@@ -1,6 +1,5 @@
 "use client"
 
-import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Menu } from "@headlessui/react"
 import { FaGithub } from "react-icons/fa6"
@@ -15,6 +14,7 @@ import Button from "../Button"
 import TransitionWrapper from "../TransitionWrapper"
 import type { IconType } from "react-icons"
 import { cn } from "@/utils"
+import { useIsExactRoute } from "@/hooks"
 
 export default function NavbarMenu() {
   const menuItems = [
@@ -48,10 +48,8 @@ export default function NavbarMenu() {
     link?: string
     label: string
   }) => {
-    const currentPath = usePathname()
-
     const parsedLink = link ?? `/${label.toLowerCase()}`
-    const isMatchingPath = currentPath === link
+    const isMatchingPath = useIsExactRoute(link!)
 
     const ICON_SIZE = 19
 
