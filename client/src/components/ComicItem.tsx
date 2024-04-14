@@ -83,6 +83,9 @@ export default function ComicItem({
                       fill
                       alt=""
                       className="object-cover"
+                      quality={70}
+                      priority
+                      fetchPriority="high"
                     />
                   </div>
                 ))}
