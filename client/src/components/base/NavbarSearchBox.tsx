@@ -23,7 +23,7 @@ export default function SearchBox() {
           role="searchbox"
           placeholder="Search"
           aria-label="Search stuff"
-          className="px-3.5 py-1.5 h-full flex-1 focus:outline-none"
+          className="px-3 py-1 h-full flex-1 focus:outline-none"
           onFocus={() => setInputFocused(true)}
           onBlur={() => setInputFocused(false)}
         />

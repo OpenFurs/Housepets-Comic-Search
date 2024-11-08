@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "./Button"
 import { LuBookmark } from "react-icons/lu"
-import { useState } from "react"
+import { useState, useId } from "react"
 import { cn } from "@/utils"
 
 export function ComicItem({
@@ -21,6 +21,10 @@ export function ComicItem({
 }) {
   const characterLength = characters.length
   const characterPlural = characterLength == 1 ? "character" : "characters"
+
+  const _id = useId()
+
+  const a11yHeading = `heading-${_id}`
 
   const stackedCharImg = characters.slice(0, 3)
 
@@ -40,12 +44,19 @@ export function ComicItem({
   })
 
   return (
-    <div id="comic-item" className="flex flex-col p-1.5 gap-y-2">
+    <div
+      id="comic-item"
+      className="flex flex-col p-1.5 gap-y-2"
+      aria-labelledby={a11yHeading}
+    >
       {/* Title card */}
       <div className="flex justify-between items-center">
-        <div className="text-lg font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
+        <h2
+          id={a11yHeading}
+          className="text-lg font-semibold overflow-hidden whitespace-nowrap text-ellipsis"
+        >
           {title}
-        </div>
+        </h2>
         <Button
           onClick={bookmarkHandler}
           className={cn(
