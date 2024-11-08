@@ -1,7 +1,7 @@
 "use client"
 
 import { Popover } from "@headlessui/react"
-import { Button } from "../button"
+import { Button } from "../Button"
 import { LuSettings } from "react-icons/lu"
 import TransitionWrapper from "../TransitionWrapper"
 

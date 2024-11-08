@@ -1,6 +1,6 @@
 import { Hyperlink } from "@/components"
 
-export default function Footer() {
+export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
@@ -21,7 +21,7 @@ export default function Footer() {
         {"."}
       </div>
       <div>
-        {`© 2022-${currentYear} Fusky Labs Software Ltd. Licensed under the `}
+        {`© 2022-${currentYear} Fusky Labs Software; Licensed under the `}
         <Hyperlink href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">
           GNU General Public License, Version 2.0
         </Hyperlink>

@@ -9,7 +9,7 @@ import SettingsPopover from "./NavbarSettingsPopup"
 import NavbarMenu from "./NavbarMenu"
 import { useIsExactRoute } from "@/hooks"
 
-export default function Navbar() {
+export function Navbar() {
   const isSavesPage = useIsExactRoute("/saves")
 
   return (

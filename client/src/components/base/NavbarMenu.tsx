@@ -10,7 +10,7 @@ import {
   LuInfo,
   LuMenu
 } from "react-icons/lu"
-import { Button } from "../button"
+import { Button } from "../Button"
 import TransitionWrapper from "../TransitionWrapper"
 import type { IconType } from "react-icons"
 import { cn } from "@/utils"

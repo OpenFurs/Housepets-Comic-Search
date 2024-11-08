@@ -1,11 +1,7 @@
-export * from "./base"
+export * from "./Button"
+export * from "./ComicGrid"
 
-export * from "./button"
+export * from "./Group"
+export * from "./Hyperlink"
 
-// Export fIx for client rendering
-export * as ComicItem from "./comic-item"
-
-export * from "./group"
-export * from "./hyperlink"
-
-export * from "./responsive-grid"
+export * from "./ResponsiveGrid"

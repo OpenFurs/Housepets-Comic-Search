@@ -1,12 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "./button"
+import { Button } from "./Button"
 import { LuBookmark } from "react-icons/lu"
 import { useState } from "react"
 import { cn } from "@/utils"
 
-export default function ComicItem({
+export function ComicItem({
   title,
   image,
   date,
