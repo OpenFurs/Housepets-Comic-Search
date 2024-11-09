@@ -4,24 +4,19 @@
   <em>Searchpets!</em>
 </h1>
 <p align="center">
+  <img src="https://img.shields.io/github/license/fusky-labs/searchpets?style=flat" alt="GPL 2.0 License" />
+  <img src="https://img.shields.io/github/issues/fusky-labs/searchpets?style=flat" alt="Searchpets' open issues" />
+  <img src="https://img.shields.io/github/last-commit/fusky-labs/searchpets" />
+  <img src="https://img.shields.io/github/contributors/fusky-labs/searchpets" />
+</p>
+<p align="center">
   <img src="https://user-images.githubusercontent.com/94678583/192121601-8083d9a5-a607-4201-8db1-d15369e240b7.png" alt="Searchpets Dev Demo" />
 </p>
-<p align="center">
-  <img src="https://img.shields.io/github/license/foosky-labs/searchpets?style=flat" alt="GPL 2.0 License" />
-  <img src="https://img.shields.io/github/issues/foosky-labs/searchpets?style=flat" alt="Searchpets' open issues" />
-  <img src="https://img.shields.io/github/last-commit/foosky-labs/searchpets" />
-  <img src="https://img.shields.io/github/contributors/foosky-labs/searchpets" />
-</p>
-<p align="center">
-<em>Searchpets!</em> is comic search engine for querying characters, texts from comics, and chapter arcs from the entire <em>Housepets!</em> catalog! Written in Python and TypeScript - it was taken inspiration from this <a href="https://www.housepetscomic.com/forums/viewtopic.php?f=13&t=5434&p=938783&hilit=search+engine#p938783">forum post</a>.
-</p>
 
-## Infrastructure
+_Searchpets!_ is comic search engine for querying characters, texts from comics, and chapter arcs from the entire _Housepets!_ catalog! Written in Python and TypeScript - it was taken inspiration from this [forum post][hp-post].
 
-The website is written in Next.js; its database and search functionality is powered
-by MongoDB. The backend is written in Python to update latest comics from
+The backend is written in Python to update latest comics from
 the [official website](https://www.housepetscomic.com).
-Searchpets! is hosted from Linode and Vercel and delivered through Cloudflare.
 
 ## Running the app locally
 
@@ -29,23 +24,29 @@ Searchpets! is hosted from Linode and Vercel and delivered through Cloudflare.
 
 - Node.js 20 or higher (LTS recommended)
 - Python 3.11 or higher
-- Yarn (npm can still be used but we strongly recommend using
-  yarn!)
+- Yarn package manager
 - Docker
 
 ### Setup and Installation
 
-- Install dependencies with `yarn install` or `yarn`
-- Go to the `python/` directory; and run the following commands:
+Install dependencies with `yarn install` or `yarn` from their respective directories
 
-  ```sh
-  python -v venv venv
-  pip install -r requirements.txt
-  ```
+```sh
+cd client
+yarn install
 
-- On the root of the project, run `yarn dev` to run the website
+cd ../server
+python -v venv venv
+pip install -r requirements.txt
+```
 
-## Disclaimer
+From in the `server` directory; provision the MongoDB database locally via Docker Compose
+
+```sh
+docker compose up
+```
+
+## Copyright disclaimer
 
 _Searchpets!_ is an open source fan project. SP does not own any of the
 contents used on this website and has no direct affiliation with the entire
@@ -54,3 +55,5 @@ _Housepets!_ web comic or all of Rick Griffin's intellectual property.
 ## License
 
 GPL-2.0
+
+[hp-post]: https://www.housepetscomic.com/forums/viewtopic.php?f=13&t=5434&p=938783&hilit=search+engine#p938783
