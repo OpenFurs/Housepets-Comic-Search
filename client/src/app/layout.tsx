@@ -24,14 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "overflow-x-hidden text-sm")}>
-        <div className="contents">
-          <Navbar />
-          <div className="min-h-[calc(100dvh-4rem)] mx-auto max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl px-7">
-            {children}
-          </div>
-          <Footer />
+      <body
+        className={cn(inter.className, "overflow-x-hidden text-sm antialiased")}
+      >
+        <Navbar />
+        <div className="min-h-[calc(100dvh-4rem)] mx-auto max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl px-7">
+          {children}
         </div>
+        <Footer />
       </body>
     </html>
   )

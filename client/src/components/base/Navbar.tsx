@@ -9,6 +9,8 @@ import SettingsPopover from "./NavbarSettingsPopup"
 import NavbarMenu from "./NavbarMenu"
 import { useIsExactRoute } from "@/hooks"
 
+import spIcon from "../../assets/icon.png"
+
 export function Navbar() {
   const isSavesPage = useIsExactRoute("/saves")
 
@@ -19,16 +21,17 @@ export function Navbar() {
         <NavbarMenu />
         <Link
           href="/"
-          className="flex items-center text-2xl font-bold cursor-pointer select-none gap-x-2.5"
+          className="inline-flex items-center cursor-pointer select-none gap-x-2.5"
         >
-          <Image
-            src="/icon.png"
-            alt=""
-            width={40}
-            height={40}
-            className="border-2 rounded-md"
+          {/* Use the image as CSS so Google won't index it as a standalone image */}
+          <div
+            className="size-10 border-2 rounded-md !bg-cover"
+            style={{ background: `url(${spIcon.src})` }}
           />
-          <span className="[letter-spacing:-0.03rem]" translate="no">
+          <span
+            className="leading-none text-[1.33rem] font-bold"
+            translate="no"
+          >
             Searchpets!
           </span>
         </Link>
