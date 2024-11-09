@@ -3,13 +3,20 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { Footer, Navbar } from "@/components/base"
 import { cn } from "@/utils"
+import { SITE_NAME } from "@/constants"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"]
+})
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Searchpets",
-    default: "Home | Searchpets"
+    template: `%s | ${SITE_NAME}`,
+    default: `Home | ${SITE_NAME}`
+  },
+  openGraph: {
+    siteName: SITE_NAME
   }
 }
 

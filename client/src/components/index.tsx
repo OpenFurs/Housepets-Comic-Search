@@ -1,5 +1,5 @@
 export * from "./Button"
-export * from "./ComicGrid"
+export * from "./ComicView"
 
 export * from "./Group"
 export * from "./Hyperlink"

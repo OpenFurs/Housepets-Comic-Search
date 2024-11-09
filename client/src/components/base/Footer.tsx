@@ -4,13 +4,16 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="px-12 max-w-screen-2xl mx-auto py-6 text-center [&_div]:pt-3.5 [&_a]:underline [&_a]:text-blue-600 hover:[&_a]:text-blue-700">
-      <div>
-        <strong>Disclaimer:</strong> <em>Searchpets!</em> is a fanmade project
-        and has no association or affiliation with the <em>Housepets!</em>{" "}
-        franchise. All the assets present is used for informational and
-        dissemination purposes.
-        {" Uses assets from "}
+    <footer className="px-12 max-w-screen-xl mx-auto py-6 text-center prose-p:pt-5 prose-p:leading-normal">
+      <p>
+        <em translate="no">Searchpets!</em>
+        {
+          " is a fanmade project and has no association or affiliation with Rick Griffin and "
+        }
+        <em translate="no">"Housepets!"</em>
+        {
+          ". All the assets present is used for dissemination purposes. Uses content from "
+        }
         <Hyperlink href="https://housepetscomic.fandom.com/">
           Housepets! Wiki
         </Hyperlink>
@@ -19,14 +22,14 @@ export function Footer() {
           Creative Commons Attribution-Share Alike License
         </Hyperlink>
         {"."}
-      </div>
-      <div>
-        {`© 2022-${currentYear} Fusky Labs Software; Licensed under the `}
+      </p>
+      <p>
+        {`© 2022-${currentYear} Kuroji Fusky and maxthecomputerfox; source code licensed under `}
         <Hyperlink href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">
-          GNU General Public License, Version 2.0
+          GPL-2.0
         </Hyperlink>
         {"."}
-      </div>
+      </p>
     </footer>
   )
 }

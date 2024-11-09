@@ -1,13 +1,21 @@
+export interface RouteParams<P extends object = {}> {
+  params: P,
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
 /** A type generic that adds an "optional" array type when no value is passed */
 export type OptionalArray<T> = T[] | never[]
 
+type StringedDate = string | Date
+
+/** Housepets stuff */
 export interface HPComicItem {
   title: string
   image: string
   imageAlt: string
-  characters: Array<HPCharacter>
+  characters: Array<HPCharacter | object>
   altText: string
-  datePublished: string | Date
+  datePublished: StringedDate
 }
 
 export interface HPCharacter {
@@ -20,7 +28,7 @@ export interface HPCharacter {
 export interface HPChapterArc {
   title: string
   chapterNum: number
-  image: string
-  comics: OptionalArray<HPComicItem>
-  characters: OptionalArray<HPCharacter>
+  dateRange: [StringedDate, StringedDate],
+  comics: OptionalArray<HPComicItem | object>
+  characters: OptionalArray<HPCharacter | object>
 }

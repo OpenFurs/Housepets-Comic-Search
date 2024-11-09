@@ -13,6 +13,11 @@ export function middleware(request: NextRequest) {
 
   const headers = new Headers(request.headers)
 
+  // Origin url
+  const { protocol, host } = request.nextUrl
+  headers.set("x-origin-url", `${protocol}//${host}`)
+
+  // CSP
   headers.set("Content-Security-Policy", parsedCsp)
   headers.set("x-nonce", nonce)
 

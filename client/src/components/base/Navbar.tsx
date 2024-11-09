@@ -15,7 +15,7 @@ export function Navbar() {
   const isSavesPage = useIsExactRoute("/saves")
 
   return (
-    <nav className="z-[1] flex px-8 py-4 justify-between odd:*:flex odd:*:items-center sticky top-0 bg-white">
+    <nav className="z-[1] flex px-4 py-3.5 justify-between odd:*:flex odd:*:items-center sticky top-0 bg-white">
       {/* Menu navigation and wordmark */}
       <div className="gap-x-2">
         <NavbarMenu />
