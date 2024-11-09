@@ -10,6 +10,7 @@ export function ComicItem({
   title,
   image,
   date,
+  slug,
   characters
 }: {
   title?: string
@@ -17,10 +18,11 @@ export function ComicItem({
   bookmarkHandler?: () => void
   image: string
   date?: string
+  slug?: string
   characters: string[]
 }) {
   const characterLength = characters.length
-  const characterPlural = characterLength == 1 ? "character" : "characters"
+  const characterPlural = characterLength === 1 ? "character" : "characters"
 
   const _id = useId()
 
@@ -46,7 +48,7 @@ export function ComicItem({
   return (
     <div
       id="comic-item"
-      className="flex flex-col p-1.5 gap-y-2"
+      className="flex flex-col p-2 gap-y-2 rounded-md border"
       aria-labelledby={a11yHeading}
     >
       {/* Title card */}
