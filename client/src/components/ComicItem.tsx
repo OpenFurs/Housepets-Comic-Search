@@ -87,7 +87,9 @@ export function ComicItem({
         <div className="flex-1 relative">
           <div data-link="/comic/slug_placeholder">
             <div className="flex items-center gap-x-1.5">
-              <InlineImageStack images={stackedCharImg} />
+              <span className="sm:contents hidden">
+                <InlineImageStack images={stackedCharImg} />
+              </span>
               <span>{`${characterLength} ${characterPlural}`}</span>
             </div>
           </div>

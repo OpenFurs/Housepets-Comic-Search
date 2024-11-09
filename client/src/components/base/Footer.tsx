@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="px-12 max-w-screen-xl mx-auto py-6 text-center prose-p:pt-5 prose-p:leading-normal">
+    <footer className="lg:px-12 md:px-6 px-4 max-w-screen-xl mx-auto pb-6 lg:pt-6 pt-0.5 text-center prose-p:pt-5 prose-p:leading-normal">
       <p>
         <em translate="no">Searchpets!</em>
         {
