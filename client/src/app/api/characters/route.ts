@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server"
+import mockData from "../(mocks)/characters.json"
 
 export async function GET(request: NextRequest) {
   const urlParams = new URL(request.url).searchParams
 
   // Mock API, will add data later
-  return NextResponse.json({
-    message: "It's me, hi, I'm the problem it's me"
-  })
+  return NextResponse.json(mockData)
 }

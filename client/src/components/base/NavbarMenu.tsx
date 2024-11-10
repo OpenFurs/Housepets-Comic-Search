@@ -8,7 +8,8 @@ import {
   LuCat,
   LuExternalLink,
   LuInfo,
-  LuMenu
+  LuMenu,
+  LuSearch
 } from "react-icons/lu"
 import { Button } from "../Button"
 import TransitionWrapper from "../TransitionWrapper"
@@ -19,6 +20,7 @@ import { SiFandom } from "react-icons/si"
 
 export default function NavbarMenu() {
   const menuItems = [
+    { icon: LuSearch, label: "Search" },
     { icon: LuCat, label: "Characters" },
     { icon: LuBookMarked, label: "Chapter Arcs", link: "/arcs" },
     { icon: LuInfo, label: "About Searchpets", link: "/about" }

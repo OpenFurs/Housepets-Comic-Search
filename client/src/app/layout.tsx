@@ -35,7 +35,7 @@ export default function RootLayout({
         className={cn(inter.className, "overflow-x-hidden text-sm antialiased")}
       >
         <Navbar />
-        <div className="min-h-[calc(100dvh-4rem)] mx-auto max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl lg:px-8 md:px-4 px-2.5">
+        <div className="min-h-[calc(100dvh-12.75rem)] mx-auto max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl lg:px-8 md:px-4 px-2.5">
           {children}
         </div>
         <Footer />

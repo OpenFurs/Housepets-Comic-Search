@@ -20,9 +20,10 @@ export interface HPComicItem {
 
 export interface HPCharacter {
   name: string
+  slug: string
   image: string
   species: string
-  inChapterArcs?: Omit<HPChapterArc, "characters">
+  appearances: Omit<HPChapterArc, "characters">
 }
 
 export interface HPChapterArc {

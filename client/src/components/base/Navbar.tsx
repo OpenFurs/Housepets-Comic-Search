@@ -13,6 +13,7 @@ import spIcon from "../../assets/icon.png"
 
 export function Navbar() {
   const isSavesPage = useIsExactRoute("/saves")
+  const isMainPage = useIsExactRoute("/")
 
   return (
     <nav className="z-[1] flex px-4 py-3.5 justify-between odd:*:flex odd:*:items-center sticky top-0 bg-white">
@@ -37,7 +38,7 @@ export function Navbar() {
         </Link>
       </div>
       {/* Search box */}
-      <SearchBox />
+      {!isMainPage ? <SearchBox /> : <div />}
       {/* Other actions */}
       <div className="gap-x-1.5">
         <Link href="/saves">

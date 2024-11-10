@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import mockData from "../../../mock.json"
+import mockData from "../(mocks)/comics.json"
 
 export async function GET(request: NextRequest) {
   const urlParams = new URL(request.url).searchParams

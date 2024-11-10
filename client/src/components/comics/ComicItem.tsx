@@ -1,12 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "./Button"
+import { Button } from "../Button"
 import { LuBookmark } from "react-icons/lu"
 import { useState, useId } from "react"
 import { cn } from "@/utils"
 import Link from "next/link"
-import { InlineImageStack } from "./InlineImageStack"
+import { InlineImageStack } from "../InlineImageStack"
 
 export function ComicItem({
   title,

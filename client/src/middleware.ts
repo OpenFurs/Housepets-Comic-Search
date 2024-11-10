@@ -5,6 +5,7 @@ export function middleware(request: NextRequest) {
 
   const csp = `
     script-src 'self' 'unsafe-eval' 'nonce-${nonce}';
+    img-src 'self';
     connect-src 'self';
     upgrade-insecure-requests;
   `
