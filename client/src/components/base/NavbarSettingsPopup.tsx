@@ -1,6 +1,6 @@
 "use client"
 
-import { Popover } from "@headlessui/react"
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react"
 import { Button } from "../Button"
 import { LuSettings } from "react-icons/lu"
 import TransitionWrapper from "../TransitionWrapper"
@@ -10,10 +10,10 @@ export default function SettingsPopover() {
     <Popover className="relative z-10">
       {({ open }) => (
         <>
-          <Popover.Button as={Button} icon={<LuSettings size={19} />} />
+          <PopoverButton as={Button} icon={<LuSettings size={19} />} />
           <TransitionWrapper show={open}>
-            <Popover.Panel
-              static
+            <PopoverPanel
+              portal
               className="absolute z-10 top-3 border border-purple-500 right-0 p-3.5 shadow-md rounded-md flex flex-col bg-white"
             >
               <SettingItem heading="Theme" description="" control={<>wip</>} />
@@ -22,7 +22,7 @@ export default function SettingsPopover() {
                 description=""
                 control={<Button>Clear all settings</Button>}
               />
-            </Popover.Panel>
+            </PopoverPanel>
           </TransitionWrapper>
         </>
       )}
