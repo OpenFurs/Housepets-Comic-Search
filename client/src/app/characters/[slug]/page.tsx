@@ -24,13 +24,14 @@ export default async function CharacterPage({
   params,
   searchParams
 }: CharacterPageRoute) {
+  const { slug } = await params
   const urlBase = (await headers()).get("x-origin-url")
 
   const req: HPCharacter[] = await fetch(`${urlBase}/api/characters`).then(
     (r) => r.json()
   )
 
-  const charFiltered = req.filter((x) => x.slug === params.slug)[0]
+  const charFiltered = req.filter((x) => x.slug === slug)[0]
 
   return (
     <>
