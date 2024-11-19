@@ -13,12 +13,11 @@ export default function TransitionWrapper({
     <Transition
       show={show}
       enter="transition duration-[200ms] ease-out"
-      enterFrom="transform-gpu translate-y-2 opacity-0"
-      enterTo="transform-gpu translate-y-0 opacity-100"
+      enterFrom="transform-gpu translate-y-5 opacity-0"
+      enterTo="transform-gpu opacity-100"
       leave="transition duration-[200ms] ease-out"
-      leaveFrom="transform-gpu translate-y-0 opacity-100"
-      leaveTo="transform-gpu translate-y-2 opacity-0"
-      className="translate-y-0"
+      leaveFrom="transform-gpu opacity-100"
+      leaveTo="transform-gpu translate-y-5 opacity-0"
     >
       {children}
     </Transition>

@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss"
 import typographyPlugin from "@tailwindcss/typography"
-import headlessUIPlugin from "@headlessui/tailwindcss"
 
 const config: Config = {
   content: [
@@ -11,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {}
   },
-  plugins: [typographyPlugin, headlessUIPlugin]
+  plugins: [typographyPlugin]
 }
 
 export default config

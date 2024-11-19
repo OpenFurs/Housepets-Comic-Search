@@ -1,16 +1,17 @@
 "use client"
 
 import Link from "next/link"
-import { Menu } from "@headlessui/react"
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react"
 import { FaGithub } from "react-icons/fa6"
 import {
   LuBookMarked,
   LuCat,
   LuExternalLink,
   LuInfo,
-  LuMenu
+  LuMenu,
+  LuSearch
 } from "react-icons/lu"
-import { Button } from "../button"
+import { Button } from "../Button"
 import TransitionWrapper from "../TransitionWrapper"
 import type { IconType } from "react-icons"
 import { cn } from "@/utils"
@@ -19,14 +20,10 @@ import { SiFandom } from "react-icons/si"
 
 export default function NavbarMenu() {
   const menuItems = [
+    { icon: LuSearch, label: "Search" },
     { icon: LuCat, label: "Characters" },
     { icon: LuBookMarked, label: "Chapter Arcs", link: "/arcs" },
-    { icon: LuInfo, label: "About Searchpets", link: "/about" },
-    {
-      icon: FaGithub,
-      label: "View source code",
-      link: "https://github.com/fusky-labs/searchpets"
-    }
+    { icon: LuInfo, label: "About Searchpets", link: "/about" }
   ]
 
   const externalItems = [
@@ -56,29 +53,33 @@ export default function NavbarMenu() {
     const ICON_SIZE = 19
 
     return (
-      <Menu.Item
+      <MenuItem
         as={Link}
         href={parsedLink}
         target={link?.startsWith("https") ? "_blank" : undefined}
         rel={link?.startsWith("https") ? "noopenner noreferrer" : undefined}
         className={cn(
           !isMatchingPath
-            ? "ui-active:bg-purple-600 ui-active:text-white"
+            ? "data-[active]:bg-purple-600 data-[active]:text-white"
             : "bg-purple-600 text-white",
           "flex gap-x-2 items-center px-4 py-2.5"
         )}
       >
         {Icon ? <Icon size={ICON_SIZE} /> : <LuExternalLink size={ICON_SIZE} />}
         <span className="whitespace-nowrap">{label}</span>
-      </Menu.Item>
+      </MenuItem>
     )
   }
 
   return (
     <Menu as="div" className="relative z-10">
-      <Menu.Button as={Button} icon={<LuMenu size={19} />} variant="tritery" />
+      <MenuButton as={Button} icon={<LuMenu size={19} />} variant="tritery" />
       <TransitionWrapper>
-        <Menu.Items className="absolute top-3 left-0 overflow-hidden bg-white rounded-md shadow-md border border-purple-600 flex flex-col">
+        <MenuItems
+          anchor="bottom start"
+          modal={false}
+          className="absolute z-10 translate-y-3 overflow-hidden bg-white rounded-md shadow-md border border-purple-600 flex flex-col"
+        >
           {menuItems.map((item, i) => (
             <ItemLinks
               key={i}
@@ -88,6 +89,12 @@ export default function NavbarMenu() {
             />
           ))}
           <div className="my-2 flex-shrink-0 border-b border-gray-400 mx-3" />
+          <ItemLinks
+            icon={FaGithub}
+            label="View source code"
+            link="https://github.com/fusky-labs/searchpets"
+          />
+          <div className="my-2 flex-shrink-0 border-b border-gray-400 mx-3" />
           {externalItems.map((item) => (
             <ItemLinks
               key={item.link}
@@ -96,7 +103,7 @@ export default function NavbarMenu() {
               icon={item.icon}
             />
           ))}
-        </Menu.Items>
+        </MenuItems>
       </TransitionWrapper>
     </Menu>
   )

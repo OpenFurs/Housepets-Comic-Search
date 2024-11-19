@@ -43,7 +43,7 @@ const Button = forwardRef(
         aria-label={a11yLabel}
         className={cn(
           "max-w-fit rounded-md flex items-center gap-x-1.5 transition-colors duration-100",
-          icon ? "p-2.5" : "px-3 py-1.5",
+          icon ? "p-2" : "px-2.5 py-1",
           buttonVariants[variant],
           className
         )}

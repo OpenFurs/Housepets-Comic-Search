@@ -1,28 +1,33 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "./button"
+import { Button } from "../Button"
 import { LuBookmark } from "react-icons/lu"
-import { useState } from "react"
+import { useState, useId } from "react"
 import { cn } from "@/utils"
+import Link from "next/link"
+import { InlineImageStack } from "../InlineImageStack"
 
-export default function ComicItem({
+export function ComicItem({
   title,
   image,
   date,
   characters
 }: {
   title?: string
-  isBookmarked?: boolean
-  bookmarkHandler?: () => void
   image: string
   date?: string
   characters: string[]
 }) {
   const characterLength = characters.length
-  const characterPlural = characterLength == 1 ? "character" : "characters"
+  const characterPlural = characterLength === 1 ? "character" : "characters"
 
-  const stackedCharImg = characters.slice(0, 3)
+  const _id = useId()
+  const a11yHeading = `heading-${_id}`
+
+  const stackedCharImg = characters.slice(0, 3).map((i) => ({
+    src: i
+  }))
 
   // TODO: move this to react context once API is done
   const [hasBookmarked, setBookmark] = useState(false)
@@ -40,12 +45,19 @@ export default function ComicItem({
   })
 
   return (
-    <div id="comic-item" className="flex flex-col p-1.5 gap-y-2">
+    <div
+      id="comic-item"
+      className="flex flex-col px-3.5 py-2.5 gap-y-2 rounded-md border"
+      aria-labelledby={a11yHeading}
+    >
       {/* Title card */}
       <div className="flex justify-between items-center">
-        <div className="text-lg font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
+        <h2
+          id={a11yHeading}
+          className="text-lg font-semibold overflow-hidden whitespace-nowrap text-ellipsis"
+        >
           {title}
-        </div>
+        </h2>
         <Button
           onClick={bookmarkHandler}
           className={cn(
@@ -63,38 +75,26 @@ export default function ComicItem({
           alt=""
           fill
           className="object-cover select-none"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           draggable={false}
+          priority={true}
+          quality={69}
         />
       </div>
       {/* Details for Character, date, and arcs */}
       <div className="flex items-center gap-x-2">
         {/* Character button */}
-        <div className="flex-1">
-          <Button variant="tritery" className="hover:bg-purple-100 group py-1">
-            <div className="flex items-center gap-x-1">
-              <span className="inline-flex ml-2.5 group-hover:[&_div]:border-purple-100 [&_div]:transition-colors">
-                {stackedCharImg.map((e, i) => (
-                  <div
-                    key={i}
-                    className="relative size-7 border-2 border-white rounded-full -ml-2.5 overflow-hidden"
-                  >
-                    <Image
-                      src="/placeholder.png"
-                      fill
-                      alt=""
-                      className="object-cover"
-                      quality={70}
-                      priority
-                      fetchPriority="high"
-                    />
-                  </div>
-                ))}
+        <div className="flex-1 relative">
+          <div data-link="/comic/slug_placeholder">
+            <div className="flex items-center gap-x-1.5">
+              <span className="sm:contents hidden">
+                <InlineImageStack images={stackedCharImg} />
               </span>
               <span>{`${characterLength} ${characterPlural}`}</span>
             </div>
-          </Button>
+          </div>
         </div>
-        {/* Data */}
+        {/* Date */}
         <time dateTime={_date.toISOString()}>{parsedDate}</time>
       </div>
     </div>

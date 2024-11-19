@@ -6,11 +6,9 @@ import json
 import re
 import requests
 import os
+from constants import *
 
 _console = os.get_terminal_size()
-
-HP_BASE_URL = "https://www.housepetscomic.com"
-HP_WIKI_URL = "https://housepetscomic.fandom.com"
 
 
 def strip_url(url: list) -> list:
@@ -28,7 +26,7 @@ def request_page(url: str):
         'Connection': 'keep-alive'
     }
 
-    req = rs.get(url, headers=headers)
+    req = rs.get(url, headers=headers, timeout=20)
     return BeautifulSoup(req.text, "html.parser")
 
 
@@ -50,7 +48,6 @@ def save_json(data: Any, fn: str, indent: bool = False):
 
 
 def main():
-    print("scraper started *wowzas*")
     initial_page = request_page(HP_BASE_URL)
     chapter_dropdown = initial_page.select('option.level-0')
 
@@ -79,8 +76,7 @@ def main():
             })
 
         for chapter_option in chapter_dropdown:
-            _ch_name, _ch_url = chapter_option.text, chapter_option.get(
-                'value')
+            _ch_name, _ch_url = chapter_option.text, chapter_option.get('value')  # noqa
             _strip_pattern = r"(^-\d\d\.\s)|(^\d\d\d\.\s)"
 
             is_contain_nums = re.search(_strip_pattern, _ch_name)
@@ -90,14 +86,14 @@ def main():
             else:
                 append_chapter_data(_ch_name, _ch_url)
 
-        print("Generated chapter cache baby")
+        print("Generated chapter cache")
         save_json(chapter_data, cache_filename)
 
     comic_data = []
     character_sets = set()
 
     def iterate_comic_items(page: BeautifulSoup, chapters: tuple[str]):
-        _ch_url, _ch_name, _ch_slug = chapters
+        chapter_url, chapter_name, chapter_slug = chapters  # noqa
 
         comic_items = page.select('.mh-loop-thumb-link')
         _comic_links = list(map(lambda item: item.get('href'), comic_items))  # NOQA
@@ -114,7 +110,7 @@ def main():
             comic_image, comic_image_alt = comic_img.get('src'), comic_img.get('alt')  # NOQA
 
             _tags = comic_page.select('.entry-tags a')
-            _chars = []
+            characters_list = []
 
             for char in _tags:
                 char_url = char.get('href')
@@ -129,25 +125,27 @@ def main():
                 # Since sets only accept anything but dicts, we convert to string
                 # then to dict afterwards
                 character_sets.add(json.dumps(comic_chars))
-                _chars.append(comic_chars)
+                characters_list.append(comic_chars)
 
             data_output = {
                 'title': comic_title,
                 'date': comic_date,
                 'og_url': comic_link,
-                'image': comic_image,
-                'image_alt': comic_image_alt,
-                'characters': _chars,
+                'image': {
+                    'src': comic_image,
+                    'alt': comic_image_alt,
+                },
+                'characters': characters_list,
                 'chapter': {
-                    'name': _ch_name,
-                    'slug': _ch_slug,
-                    'og_url': _ch_url
+                    'name': chapter_name,
+                    'slug': chapter_slug,
+                    'og_url': chapter_url
                 }
             }
 
             comic_data.append(data_output)
 
-            iter_status = ' In chapter: "{}", retrieved "{}"'.format(_ch_name, comic_title)  # NOQA
+            iter_status = ' In chapter: "{}", retrieved "{}"'.format(chapter_name, comic_title)  # NOQA
 
             print(iter_status.ljust(_console.columns), end='\r', flush=True)
 
@@ -163,9 +161,9 @@ def main():
             # we only get the second-to-last element to determine the total number of
             # paginated pages
             total_pagd_url = pagination_items[-2].get('href')
-            total_pagd = strip_url(total_pagd_url)[-1]
+            total_pagd = int(strip_url(total_pagd_url)[-1]) + 1
 
-            for current_page in range(1, int(total_pagd) + 1):
+            for current_page in range(1, total_pagd):
                 _parsed_url = f"{HP_BASE_URL}/chapter/{chapter_slug}/page/{current_page}/"
 
                 comic_list = request_page(_parsed_url)
