@@ -1,4 +1,4 @@
-from housepets import Housepets, housepets_db
+from server.legacy.housepets import Housepets, housepets_db
 from constants import current_year, initial_year, schema, char_schema
 import argparse
 
@@ -36,13 +36,15 @@ def main():
             print(f"{comic_key} : {comic_data['comic']['comic_link']}")
 
             comic_link_title = comic_data['comic']['comic_link']
-            current_chapter = chapter_entries.get(comic_link_title, "Ricks posts")
+            current_chapter = chapter_entries.get(
+                comic_link_title, "Ricks posts")
 
             if comic_characters:
                 hp.set_char_slugs("characters", comic_characters)
             hp.set_char_slugs("chapters", [current_chapter])
 
-            comic_data.get("comic").update({"chapter": current_chapter, "year": year})
+            comic_data.get("comic").update(
+                {"chapter": current_chapter, "year": year})
             hp.set_comic(comic_data)
 
 
